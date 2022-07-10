@@ -3,23 +3,22 @@ import React, {useState} from 'react';
 import {Grid, Button, TextField, Typography, Link} from "@mui/material";
 import CreatePopBox from "./Popbox";
 import AvailabilityPage from "./AvailabilityPage";
+import { useDispatch} from "react-redux"
+import {addUserAsync} from "../../redux/User/thunk";
 
 export default function SignUp(){
-    const [Name, setName] = useState("");
+    let dispatch = useDispatch();
+    const [userName, setUserName] = useState("");
     const [Password, setPassword] = useState("");
     const [cPassword, setcPassword] = useState("");
     const [email, setEmail] = useState("");
 
-    const validate= (Password, cPassword)=>{
-        if(cPassword === Password){
-
-        }
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if(cPassword === Password){
-            <AvailabilityPage/>
+            dispatch(addUserAsync({userName,email,Password}));
+            // <AvailabilityPage/>;
         } else {
             return null;
         }
@@ -33,6 +32,10 @@ export default function SignUp(){
                     <Typography variant="h4" display="inline-box" component="h3"  align="center" sx={{ flex: '1 1 100%', fontWeight: 'bold' }}>
                         Sign Up
                     </Typography>
+                    <br></br>
+                    <br></br>
+                    <TextField input="userName" label="userName" variant="outlined"   fullWidth
+                               onChange={(event)=>setUserName(event.target.value)} required/>
                     <br></br>
                     <br></br>
 

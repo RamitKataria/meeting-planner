@@ -1,5 +1,5 @@
 const addMeeting = async (meetingId, content) => {
-  const link = 'http://localhost:3001/meetings/' + meetingId;
+  const link = 'http://localhost:5000/meetings/' + meetingId;
   const response = await fetch(link, {
     method: 'POST',
     headers: {
@@ -18,7 +18,7 @@ const addMeeting = async (meetingId, content) => {
 };
 
 const getMeetingsBasedOnUserId = async (userId) => {
-  const link = 'http://localhost:3001/users/' + userId + "/meetings";
+  const link = 'http://localhost:5000/users/' + userId + "/meetings";
   const response = await fetch(link, {
     method: 'GET'
   });
@@ -26,7 +26,7 @@ const getMeetingsBasedOnUserId = async (userId) => {
 };
 
 const getMeeting = async (meetingId) => {
-  const link = 'http://localhost:3001/meetings/' + meetingId;
+  const link = 'http://localhost:5000/meetings/' + meetingId;
   const response = await fetch(link, {
     method: 'GET'
   });
@@ -35,7 +35,7 @@ const getMeeting = async (meetingId) => {
 
 
 const deleteMeeting = async (meetingId) => {
-  const link = 'http://localhost:3001/meetings/' + meetingId;
+  const link = 'http://localhost:5000/meetings/' + meetingId;
   const response = await fetch(link, {
     method: 'DELETE',
   });
@@ -49,7 +49,7 @@ const deleteMeeting = async (meetingId) => {
 };
 
 const updateMeeting = async (meetingId, content) => {
-  const link = 'http://localhost:3001/meetings/' + meetingId;
+  const link = 'http://localhost:5000/meetings/' + meetingId;
   const response = await fetch(link, {
     method: 'PUT',
     headers: {
@@ -66,6 +66,9 @@ const updateMeeting = async (meetingId, content) => {
 
   return data;
 };
+
+
+
 
 export default {
   addMeeting: addMeeting,

@@ -5,6 +5,7 @@ const {v4: uuidv4} = require('uuid');
 let meetingsData = require('../data/meetings');
 let items = meetingsData.items;
 
+
 router.delete('/:meetingId', function (req, res) {
 	const index = items.findIndex(item => item.meetingId === req.params['meetingId']);
 	if (index > -1) {

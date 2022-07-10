@@ -2,12 +2,17 @@ import React, {useState} from 'react';
 import {Button, TextField, Typography,Link} from "@mui/material";
 import "../../css/login.css"
 import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {loginAsync} from "../../redux/User/thunk";
 
 export default function Login(){
-    const [Email, setEmail]=useState("");
+    let dispatch = useDispatch();
+    const [email, setEmail]=useState("");
     const [Password, setPassword] = useState("");
-    const handleSubmit = () => {
-        window.location.href = "./Guest.js";
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(loginAsync({email,Password}));
+        // window.location.href = "./Guest.js";
     }
     return (
         <div className={"outer-div"}>
